@@ -1,0 +1,108 @@
+.scanner-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.scanner-main h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.scanner-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qr-reader {
+    width: 100%;
+    height: 100%;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.scanner-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    border: 4px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.scanner-frame::before,
+.scanner-frame::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--primary-color);
+    border-style: solid;
+}
+
+.scanner-frame::before {
+    top: -4px;
+    left: -4px;
+    border-width: 4px 0 0 4px;
+}
+
+.scanner-frame::after {
+    bottom: -4px;
+    right: -4px;
+    border-width: 0 4px 4px 0;
+}
+
+.resultado-container {
+    margin-top: 40px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reserva-info {
+    margin-bottom: 30px;
+}
+
+.reserva-info p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.reserva-info strong {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .scanner-container {
+        max-width: 100%;
+    }
+    
+    .resultado-container {
+        padding: 20px;
+    }
+} 

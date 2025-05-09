@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Administrador</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard-admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo-container">
+                <img src="ASSETS/IMAGE/logoapp.png" alt="Logo Institucional" class="logo">
+            </div>
+            <nav class="user-nav">
+                <span id="userName">Usuario</span>
+                <button id="logoutBtn" class="btn-secondary">Cerrar sesión</button>
+            </nav>
+        </header>
+
+        <main class="dashboard-main">
+            <div class="dashboard-actions">
+                <button class="btn-primary" onclick="agregarUsuario()">Agregar Usuario</button>
+                <button class="btn-primary" onclick="window.location.href='dashboard-admin.html'">Volver al Dashboard</button>
+            </div>
+
+            <section class="usuarios-list">
+                <h2>Lista de Usuarios</h2>
+                <div class="usuarios-grid" id="usuariosGrid">
+                    <!-- Los usuarios se cargarán dinámicamente -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/gestion-usuarios.js"></script>
+</body>
+</html> 

@@ -1,0 +1,118 @@
+.perfil-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.perfil-main h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.perfil-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.perfil-info, .perfil-acciones {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-info h2, .perfil-acciones h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.perfil-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.historial-container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.historial-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.historial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.reserva-historial {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reserva-historial h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.reserva-info {
+    margin-bottom: 15px;
+}
+
+.reserva-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.reserva-estado {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.estado-completado {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.estado-cancelado {
+    background-color: #f44336;
+    color: white;
+}
+
+.estado-pendiente {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .perfil-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .perfil-acciones {
+        order: -1;
+    }
+    
+    .historial-grid {
+        grid-template-columns: 1fr;
+    }
+} 

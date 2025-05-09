@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - Sistema de Reservas</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/recuperar-contrasena.css">
+</head>
+<body>
+    <div class="recovery-container">
+        <div class="recovery-card">
+            <div class="recovery-header">
+                <img src="assets/image/logoapp.png" alt="Logo" class="recovery-logo">
+                <h1>Recuperar Contraseña</h1>
+                <p>¿Has olvidado tu contraseña? Solicita un cambio al administrador</p>
+            </div>
+            
+            <form id="recovery-form" class="recovery-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico Institucional
+                    </label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="ejemplo@institucion.edu">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">
+                        <i class="fas fa-comment-alt"></i> Motivo de la Solicitud
+                    </label>
+                    <textarea id="reason" name="reason" required 
+                              placeholder="Por favor, describe brevemente por qué necesitas cambiar tu contraseña"
+                              rows="4"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temporary-password">
+                        <i class="fas fa-key"></i> Contraseña Temporal (opcional)
+                    </label>
+                    <input type="password" id="temporary-password" name="temporary-password" 
+                           placeholder="Si tienes una contraseña temporal, ingrésala aquí">
+                    <small class="form-text">La contraseña temporal es proporcionada por el administrador</small>
+                </div>
+                
+                <div id="error-message" class="error-message"></div>
+                <div id="success-message" class="success-message"></div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Solicitud
+                </button>
+                
+                <div class="recovery-links">
+                    <a href="login.html">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio de Sesión
+                    </a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="recovery-footer">
+            <p>&copy; 2025 Sistema de Reservas. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-condiciones.html">Términos y Condiciones</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/recuperar-contrasena.js"></script>
+</body>
+</html> 

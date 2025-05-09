@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - Sistema de Reservas</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard-admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="ASSETS/IMAGE/logoapp.png" alt="Logo" class="logo">
+                <h1>Panel Administrativo</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h2>Gestión Principal</h2>
+                    <ul>
+                        <li>
+                            <button class="nav-button active" data-section="reservas">
+                                <i class="fas fa-calendar-check"></i>
+                                Gestión de Reservas
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="usuarios">
+                                <i class="fas fa-users"></i>
+                                Gestión de Usuarios
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="salas">
+                                <i class="fas fa-door-open"></i>
+                                Gestión de Salas
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="turnos">
+                                <i class="fas fa-clock"></i>
+                                Gestión de Turnos
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h2>Herramientas</h2>
+                    <ul>
+                        <li>
+                            <button class="nav-button" data-section="qr">
+                                <i class="fas fa-qrcode"></i>
+                                Generar QR
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="reportes">
+                                <i class="fas fa-chart-bar"></i>
+                                Reportes
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="capacitaciones">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                Capacitaciones
+                            </button>
+                        </li>
+                        <li>
+                            <button class="nav-button" data-section="soporte">
+                                <i class="fas fa-headset"></i>
+                                Soporte Técnico
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <span id="user-name">Admin</span>
+                <button id="logout-btn" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="section-title">Gestión de Reservas</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="add-new-btn">
+                        <i class="fas fa-plus"></i>
+                        Nuevo
+                    </button>
+                    <button class="btn btn-outline" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Actualizar
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic Content Sections -->
+            <div id="content-container">
+                <!-- Gestión de Reservas -->
+                <section id="reservas-section" class="content-section active">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Estado</option>
+                            <option value="activa">Activa</option>
+                            <option value="cancelada">Cancelada</option>
+                            <option value="finalizada">Finalizada</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Sala</th>
+                                    <th>Docente</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservas-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Gestión de Usuarios -->
+                <section id="usuarios-section" class="content-section">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar docente..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Rol</option>
+                            <option value="docente">Docente</option>
+                            <option value="administrativo">Administrativo</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usuarios-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Gestión de Salas -->
+                <section id="salas-section" class="content-section">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar sala..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Tipo</option>
+                            <option value="aula">Aula</option>
+                            <option value="laboratorio">Laboratorio</option>
+                            <option value="auditorio">Auditorio</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo</th>
+                                    <th>Capacidad</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salas-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Gestión de Turnos -->
+                <section id="turnos-section" class="content-section">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar turno..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Sala</option>
+                            <!-- Se llenará dinámicamente -->
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Sala</th>
+                                    <th>Día</th>
+                                    <th>Hora Inicio</th>
+                                    <th>Hora Fin</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="turnos-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Generador QR -->
+                <section id="qr-section" class="content-section">
+                    <div class="qr-container">
+                        <div class="qr-form">
+                            <div class="form-group">
+                                <label>Tipo de QR</label>
+                                <select id="qr-type">
+                                    <option value="sala">Sala</option>
+                                    <option value="reserva">Reserva</option>
+                                    <option value="usuario">Usuario</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Seleccionar Item</label>
+                                <select id="qr-item">
+                                    <!-- Se llenará dinámicamente -->
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="generate-qr-btn">
+                                <i class="fas fa-qrcode"></i>
+                                Generar QR
+                            </button>
+                        </div>
+                        <div class="qr-preview">
+                            <div id="qr-code"></div>
+                            <button class="btn btn-outline" id="download-qr-btn">
+                                <i class="fas fa-download"></i>
+                                Descargar QR
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reportes -->
+                <section id="reportes-section" class="content-section">
+                    <div class="reports-container">
+                        <div class="report-filters">
+                            <div class="form-group">
+                                <label>Tipo de Reporte</label>
+                                <select id="report-type">
+                                    <option value="reservas">Reservas</option>
+                                    <option value="salas">Uso de Salas</option>
+                                    <option value="docentes">Actividad Docentes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Período</label>
+                                <select id="report-period">
+                                    <option value="dia">Día</option>
+                                    <option value="semana">Semana</option>
+                                    <option value="mes">Mes</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="generate-report-btn">
+                                <i class="fas fa-file-alt"></i>
+                                Generar Reporte
+                            </button>
+                        </div>
+                        <div class="report-preview">
+                            <div id="report-chart"></div>
+                            <div class="report-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-download"></i>
+                                    PDF
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-file-excel"></i>
+                                    Excel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Capacitaciones -->
+                <section id="capacitaciones-section" class="content-section">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar capacitación..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Estado</option>
+                            <option value="programada">Programada</option>
+                            <option value="en-curso">En Curso</option>
+                            <option value="finalizada">Finalizada</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Instructor</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="capacitaciones-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Soporte Técnico -->
+                <section id="soporte-section" class="content-section">
+                    <div class="filters">
+                        <input type="text" placeholder="Buscar ticket..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">Estado</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en-proceso">En Proceso</option>
+                            <option value="resuelto">Resuelto</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Usuario</th>
+                                    <th>Asunto</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="soporte-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modales -->
+    <div id="modal-container" class="modal-container">
+        <!-- Los modales se generarán dinámicamente -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard-admin.js"></script>
+</body>
+</html> 

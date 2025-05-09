@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Sistema de Reservas</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="ASSETS/IMAGE/logoapp.png" alt="Logo" class="login-logo">
+                <h1>Sistema de Reservas</h1>
+                <p>Acceso al Sistema</p>
+            </div>
+            
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="ejemplo@institucion.edu">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input type="password" id="password" name="password" required 
+                           placeholder="Ingrese su contraseña">
+                </div>
+                
+                <div id="error-message" class="error-message"></div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+                
+                <div class="login-links">
+                    <a href="recuperar-contrasena.html">¿Olvidó su contraseña?</a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="login-footer">
+            <p>&copy; 2025 Sistema de Reservas. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-condiciones.html">Términos y Condiciones</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/login.js"></script>
+</body>
+</html> 

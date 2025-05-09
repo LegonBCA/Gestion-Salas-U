@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación - Reservas de Salas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/formacion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="logo-container">
+                <img src="ASSETS/IMAGE/logoapp.png" alt="Logo Institucional" class="logo">
+            </div>
+            <nav class="user-nav">
+                <button class="btn-secondary" onclick="window.location.href='dashboard-docente.html'">Volver al Dashboard</button>
+            </nav>
+        </header>
+
+        <main class="formacion-main">
+            <h1>Formación y Capacitación</h1>
+            
+            <div class="progreso-container">
+                <h2>Tu Progreso</h2>
+                <div class="progreso-bar">
+                    <div class="progreso-fill" id="progresoFill"></div>
+                </div>
+                <p class="progreso-text" id="progresoText">0% Completado</p>
+            </div>
+
+            <div class="recursos-container">
+                <h2>Recursos de Formación</h2>
+                
+                <div class="recursos-grid">
+                    <!-- Video Tutorial -->
+                    <div class="recurso-card">
+                        <div class="recurso-header">
+                            <h3>Video Tutorial: Uso del Sistema</h3>
+                            <span class="recurso-tipo">Video</span>
+                        </div>
+                        <div class="recurso-content">
+                            <p>Aprende a utilizar todas las funcionalidades del sistema de reservas.</p>
+                            <div class="recurso-actions">
+                                <button class="btn-primary" onclick="verVideo(1)">Ver Video</button>
+                                <button class="btn-secondary" onclick="marcarCompletado(1)">Marcar como Completado</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PDF Guía -->
+                    <div class="recurso-card">
+                        <div class="recurso-header">
+                            <h3>Guía de Usuario</h3>
+                            <span class="recurso-tipo">PDF</span>
+                        </div>
+                        <div class="recurso-content">
+                            <p>Documento detallado con todas las funcionalidades del sistema.</p>
+                            <div class="recurso-actions">
+                                <button class="btn-primary" onclick="descargarPDF(1)">Descargar PDF</button>
+                                <button class="btn-secondary" onclick="marcarCompletado(2)">Marcar como Completado</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Taller Virtual -->
+                    <div class="recurso-card">
+                        <div class="recurso-header">
+                            <h3>Taller Virtual: Reservas Avanzadas</h3>
+                            <span class="recurso-tipo">Taller</span>
+                        </div>
+                        <div class="recurso-content">
+                            <p>Aprende a utilizar las funciones avanzadas del sistema.</p>
+                            <div class="recurso-actions">
+                                <button class="btn-primary" onclick="unirseTaller(1)">Unirse al Taller</button>
+                                <button class="btn-secondary" onclick="marcarCompletado(3)">Marcar como Completado</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/formacion.js"></script>
+</body>
+</html> 

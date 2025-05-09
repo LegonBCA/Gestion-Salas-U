@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escanear QR - Reservas de Salas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/qr-scanner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo Institucional" class="logo">
+            </div>
+            <nav class="user-nav">
+                <button class="btn-secondary" onclick="window.location.href='dashboard-docente.html'">Volver al Dashboard</button>
+            </nav>
+        </header>
+
+        <main class="scanner-main">
+            <h1>Escanear Código QR</h1>
+            
+            <div class="scanner-container">
+                <div id="reader" class="qr-reader"></div>
+                <div class="scanner-overlay">
+                    <div class="scanner-frame"></div>
+                </div>
+            </div>
+
+            <div id="resultado" class="resultado-container" style="display: none;">
+                <h2>Información de la Reserva</h2>
+                <div class="reserva-info">
+                    <p><strong>Sala:</strong> <span id="salaNombre">-</span></p>
+                    <p><strong>Fecha:</strong> <span id="reservaFecha">-</span></p>
+                    <p><strong>Hora:</strong> <span id="reservaHora">-</span></p>
+                    <p><strong>Usuario:</strong> <span id="usuarioNombre">-</span></p>
+                    <p><strong>Estado:</strong> <span id="reservaEstado">-</span></p>
+                </div>
+                <button id="marcarIngresoBtn" class="btn-primary" style="display: none;">Marcar como Ingresado</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Incluir la biblioteca de escaneo QR -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="js/qr-scanner.js"></script>
+</body>
+</html> 
